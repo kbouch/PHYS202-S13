@@ -1,0 +1,12 @@
+from
+http://www.mactricksandtips.com/2008/02/top-50-terminal-commands.html
+
+This command
+defaults write com.apple.finder AppleShowAllFiles TRUE 
+
+shows hidden files in finder
+
+
+
+git commands cheat sheet
+http://cheat.errtheblog.com/s/git
