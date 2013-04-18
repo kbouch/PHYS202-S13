@@ -12,6 +12,7 @@
 
 * [Project Euler][6]
 
+* [Latex Math Guide][7]
 
    [1]: http://cheat.errtheblog.com/s/git
    [2]: https://github.com/
@@ -19,4 +20,5 @@
    [4]: http://www.codecademy.com/#!/exercises/0
    [5]: http://scipy-lectures.github.io/
    [6]: http://projecteuler.net/
+   [7]: ftp://ftp.ams.org/pub/tex/doc/amsmath/short-math-guide.pdf
    
