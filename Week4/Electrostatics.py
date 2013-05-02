@@ -32,7 +32,7 @@ def dipolePotential(x,y,q,d,a,k=8.987552e9,ang=0.0,xc=0.0,yc=0.0):
     d is the distance between the two charges, so each is d/2 distance from the center point.
     a is the axis designation: takes 'x', 'y', or 'a'. A second character added after the
     letter makes both charges the sign of the passed charge.
-    The optional arguments ang, xc, yc orient the dipole axis at an angle to the x axis.
+    The optional arguments ang, xc, yc orient the dipole axis at an angle (radians) to the x axis.
     xc, yc change the central location 
     """
     if a[0] == 'x':
