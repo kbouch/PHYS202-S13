@@ -22,23 +22,28 @@ def pointPotential(x,y,q,xo=0.0,yo=0.0,k=8.987552e9):
 
 def dipolePotential(x,y,q,d,a,k=8.987552e9,ang=0.0,xc=0.0,yc=0.0):
     """x, y are equally shaped ndarrays or lists, tuples, or coordinates. Returns a new array
-    with the same shape, returning the result of evaluating the dipole potential for the respective x and y elements.
-    Also needs k,q,d specified.
-    k is the coulumb force constant 1/4pi(epsilon_not)defualts to the SI value 8.987552e9 with units (Newton)(meter^2)/(Coulumb^2).
-    q is the charge magnitude of both separated point charges. If q > 0, then the positive charge goes on the positive axis direction.
-    d is the distance each charge is from the origin along the y axis. The positive charge is on the positive y axis.
-    a is the axis designation: takes 'x', 'y', or 'a'. If a second character is added after the letter, both charges will have the same sign.
-    The optional arguments ang, xc, yc orient the dipole axis at an angle to the x axis. xc, yc change the central location 
+    with the same shape, returning the result of evaluating the dipole potential for
+    the corresponding elements in x and y.
+    Also needs q,d specified. changing k is optional
+    k is the coulumb force constant 1/4pi(epsilon_not) defualts to the SI value 8.987552e9
+    with units (Newton)(meter^2)/(Coulumb^2).
+    q is the charge magnitude of both separated point charges.
+    If q > 0, then the positive charge goes on the positive axis direction.
+    d is the distance between the two charges, so each is d/2 distance from the center point.
+    a is the axis designation: takes 'x', 'y', or 'a'. A second character added after the
+    letter makes both charges the sign of the passed charge.
+    The optional arguments ang, xc, yc orient the dipole axis at an angle to the x axis.
+    xc, yc change the central location 
     """
     if a[0] == 'x':
-        xo = d
+        xo = d/2.0
         yo = 0.0
     elif a[0] == 'y':
         xo = 0.0
-        yo = d
+        yo = d/2.0
     elif a[0] == 'a':
-        xo = d*np.cos(ang)
-        yo = d*np.sin(ang)
+        xo = (d/2.0)*np.cos(ang)
+        yo = (d/2.0)*np.sin(ang)
     else:
         raise 'Error: dipole axis invalid arg. 3rd arg must be x or y'
     if len(a) > 1:
