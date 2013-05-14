@@ -1,0 +1,124 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      3586,        114]
+NotebookOptionsPosition[      3263,         97]
+NotebookOutlinePosition[      3614,        113]
+CellTagsIndexPosition[      3571,        110]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"g", " ", "=", " ", "9.8"}], " ", ";", 
+   RowBox[{"(*", 
+    RowBox[{"grav", " ", "constant"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"l", " ", "=", " ", "0.5"}], " ", ";", 
+   RowBox[{"(*", 
+    RowBox[{"pendulum", " ", "length"}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"omega", " ", "=", " ", 
+    RowBox[{"Sqrt", "[", 
+     RowBox[{"g", "/", "l"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Theta]0", " ", "=", " ", 
+   RowBox[{"20", "*", 
+    RowBox[{"\[Pi]", "/", "180"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Omega]0", " ", "=", " ", "0"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ode1", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"\[Theta]", "''"}], "[", "t", "]"}], "=", " ", 
+      RowBox[{
+       RowBox[{"-", 
+        RowBox[{"(", 
+         RowBox[{"g", "/", "l"}], ")"}]}], "*", 
+       RowBox[{"Sin", "[", "\[Theta]", "]"}]}]}], ",", 
+     RowBox[{
+      RowBox[{"\[Theta]", "[", "0", "]"}], " ", "=", " ", "\[Theta]0"}], ",", 
+     
+     RowBox[{
+      RowBox[{
+       RowBox[{"\[Theta]", "'"}], "[", "0", "]"}], " ", "=", " ", 
+      "\[Omega]0"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sol", " ", "=", " ", 
+   RowBox[{"NDSolve", "[", 
+    RowBox[{"ode1", ",", "\[Theta]", ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "20"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"approx", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"180", "/", "Pi"}], ")"}], "\[Theta]0", " ", 
+    RowBox[{"Sin", "[", 
+     RowBox[{"omeaga", " ", "t"}], "]"}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.577552866641501*^9, 3.577553227933386*^9}, 
+   3.57755331931443*^9, {3.577553358073731*^9, 3.577553391263515*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NDSolve", "::", "deqn"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Equation or list of equations expected instead of \
+\[NoBreak]\\!\\(\\(\\(-19.6`\\)\\)\\\\ \\(\\(Sin[\[Theta]]\\)\\)\\)\[NoBreak] \
+in the first argument \[NoBreak]\\!\\({\\(\\(\\(\\(-19.6`\\)\\)\\\\ \
+\\(\\(Sin[\[Theta]]\\)\\)\\)\\), \[Pi]\\/9, 0}\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/NDSolve/deqn\\\", \
+ButtonNote -> \\\"NDSolve::deqn\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{
+  3.5775532308921547`*^9, 3.57755332003244*^9, {3.577553363935461*^9, 
+   3.577553392911344*^9}}]
+}, Open  ]]
+},
+WindowSize->{740, 525},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (July 22, \
+2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 1947, 56, 178, "Input"],
+Cell[2529, 80, 718, 14, 55, "Message"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
