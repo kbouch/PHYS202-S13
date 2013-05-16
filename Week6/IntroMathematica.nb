@@ -1,0 +1,252 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      8929,        243]
+NotebookOptionsPosition[      8154,        215]
+NotebookOutlinePosition[      8489,        230]
+CellTagsIndexPosition[      8446,        227]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Folowing", " ", "Mathematica", " ", "Tutorials"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"--", 
+     RowBox[{"-", 
+      RowBox[{"Introduction", "--"}]}]}], "-"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"part", " ", 
+    RowBox[{"a", ":", " ", 
+     RowBox[{
+     "Syntax", " ", "of", " ", "the", " ", "Mathematica", " ", 
+      "Language"}]}]}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  
+  RowBox[{
+   RowBox[{"\"\<Symbol:\>\"", "  ", "\[Alpha]"}], "\[IndentingNewLine]", 
+   RowBox[{"FullForm", "[", 
+    RowBox[{"!", 
+     RowBox[{"x", " ", "+", " ", 
+      RowBox[{"x", "!"}]}]}], "]"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"FullForm", "[", 
+    RowBox[{"\[Alpha]", " ", "-", " ", 
+     RowBox[{"\[Beta]", " ", "*", " ", "\[Gamma]"}]}], "]"}], 
+   "\[IndentingNewLine]", 
+   "\"\<shows mathematica's order of operations. I prefer to use lots of \
+parentheses instead\>\"", "\[IndentingNewLine]", 
+   RowBox[{
+   "\"\<hello world\>\"", " ", "<>", " ", 
+    "\"\<escapekey-f-escape is \[Phi], and so on for greek letters\>\""}], 
+   "\[IndentingNewLine]", 
+   "\"\<escape key gives a special symbol. surrounding certain kewords with \
+this gives mathematical symbols like \[Integral] , and \[DifferentialD] or \
+\[Infinity]\>\"", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"FullForm", "[", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", "y", ",", "z"}], "}"}], "]"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\"\<function calls:\>\"", "\[IndentingNewLine]", 
+   "\"\<low priority\>\"", "\[IndentingNewLine]", 
+   RowBox[{"FullForm", "[", 
+    RowBox[{
+     RowBox[{"3", "+", 
+      RowBox[{"2", "x"}]}], " ", "//", "f"}], "]"}], "\[IndentingNewLine]", 
+   "\"\<high priority\>\"", "\[IndentingNewLine]", 
+   RowBox[{"FullForm", "[", 
+    RowBox[{"3", " ", "+", " ", 
+     RowBox[{"f", "@", 
+      RowBox[{"(", 
+       RowBox[{"2", "x"}], ")"}]}]}], "]"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.577659566655919*^9, 3.5776596702342787`*^9}, {
+  3.577660201867832*^9, 3.5776602105743237`*^9}, {3.577660526644861*^9, 
+  3.577660625466095*^9}, {3.577660690154443*^9, 3.577661208101242*^9}, {
+  3.577661258799625*^9, 3.5776612987739677`*^9}, {3.5776618523923597`*^9, 
+  3.577661861348692*^9}, {3.577664481635062*^9, 3.5776645441801443`*^9}, {
+  3.577664592426614*^9, 3.577664667053919*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\<\"Symbol:\"\>", " ", "\[Alpha]"}]], "Output",
+ CellChangeTimes->{{3.577660844746681*^9, 3.577660851382162*^9}, {
+   3.5776611463141947`*^9, 3.577661174645852*^9}, 3.57766120897752*^9, 
+   3.57766186214879*^9, {3.577664526738686*^9, 3.577664545212802*^9}, 
+   3.577664667868143*^9}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   RowBox[{"Not", "[", 
+    RowBox[{"Plus", "[", 
+     RowBox[{"x", ",", 
+      RowBox[{"Factorial", "[", "x", "]"}]}], "]"}], "]"}],
+   ShowSpecialCharacters->False,
+   ShowStringCharacters->True,
+   NumberMarks->True],
+  FullForm]], "Output",
+ CellChangeTimes->{{3.577660844746681*^9, 3.577660851382162*^9}, {
+   3.5776611463141947`*^9, 3.577661174645852*^9}, 3.57766120897752*^9, 
+   3.57766186214879*^9, {3.577664526738686*^9, 3.577664545212802*^9}, 
+   3.577664667874804*^9}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   RowBox[{"Plus", "[", 
+    RowBox[{"\\[Alpha]", ",", 
+     RowBox[{"Times", "[", 
+      RowBox[{
+       RowBox[{"-", "1"}], ",", "\\[Beta]", ",", "\\[Gamma]"}], "]"}]}], "]"}],
+   ShowSpecialCharacters->False,
+   ShowStringCharacters->True,
+   NumberMarks->True],
+  FullForm]], "Output",
+ CellChangeTimes->{{3.577660844746681*^9, 3.577660851382162*^9}, {
+   3.5776611463141947`*^9, 3.577661174645852*^9}, 3.57766120897752*^9, 
+   3.57766186214879*^9, {3.577664526738686*^9, 3.577664545212802*^9}, 
+   3.577664667881483*^9}],
+
+Cell[BoxData["\<\"shows mathematica's order of operations. I prefer to use \
+lots of parentheses instead\"\>"], "Output",
+ CellChangeTimes->{{3.577660844746681*^9, 3.577660851382162*^9}, {
+   3.5776611463141947`*^9, 3.577661174645852*^9}, 3.57766120897752*^9, 
+   3.57766186214879*^9, {3.577664526738686*^9, 3.577664545212802*^9}, 
+   3.5776646678883247`*^9}],
+
+Cell[BoxData["\<\"hello worldescapekey-f-escape is \[Phi], and so on for \
+greek letters\"\>"], "Output",
+ CellChangeTimes->{{3.577660844746681*^9, 3.577660851382162*^9}, {
+   3.5776611463141947`*^9, 3.577661174645852*^9}, 3.57766120897752*^9, 
+   3.57766186214879*^9, {3.577664526738686*^9, 3.577664545212802*^9}, 
+   3.577664667897126*^9}],
+
+Cell[BoxData["\<\"escape key gives a special symbol. surrounding certain \
+kewords with this gives mathematical symbols like \[Integral] , and \
+\[DifferentialD] or \[Infinity]\"\>"], "Output",
+ CellChangeTimes->{{3.577660844746681*^9, 3.577660851382162*^9}, {
+   3.5776611463141947`*^9, 3.577661174645852*^9}, 3.57766120897752*^9, 
+   3.57766186214879*^9, {3.577664526738686*^9, 3.577664545212802*^9}, 
+   3.577664667906474*^9}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   RowBox[{"List", "[", 
+    RowBox[{"x", ",", "y", ",", "z"}], "]"}],
+   ShowSpecialCharacters->False,
+   ShowStringCharacters->True,
+   NumberMarks->True],
+  FullForm]], "Output",
+ CellChangeTimes->{{3.577660844746681*^9, 3.577660851382162*^9}, {
+   3.5776611463141947`*^9, 3.577661174645852*^9}, 3.57766120897752*^9, 
+   3.57766186214879*^9, {3.577664526738686*^9, 3.577664545212802*^9}, 
+   3.5776646679153757`*^9}],
+
+Cell[BoxData["\<\"function calls:\"\>"], "Output",
+ CellChangeTimes->{{3.577660844746681*^9, 3.577660851382162*^9}, {
+   3.5776611463141947`*^9, 3.577661174645852*^9}, 3.57766120897752*^9, 
+   3.57766186214879*^9, {3.577664526738686*^9, 3.577664545212802*^9}, 
+   3.577664667922151*^9}],
+
+Cell[BoxData["\<\"low priority\"\>"], "Output",
+ CellChangeTimes->{{3.577660844746681*^9, 3.577660851382162*^9}, {
+   3.5776611463141947`*^9, 3.577661174645852*^9}, 3.57766120897752*^9, 
+   3.57766186214879*^9, {3.577664526738686*^9, 3.577664545212802*^9}, 
+   3.577664667930896*^9}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   RowBox[{"f", "[", 
+    RowBox[{"Plus", "[", 
+     RowBox[{"3", ",", 
+      RowBox[{"Times", "[", 
+       RowBox[{"2", ",", "x"}], "]"}]}], "]"}], "]"}],
+   ShowSpecialCharacters->False,
+   ShowStringCharacters->True,
+   NumberMarks->True],
+  FullForm]], "Output",
+ CellChangeTimes->{{3.577660844746681*^9, 3.577660851382162*^9}, {
+   3.5776611463141947`*^9, 3.577661174645852*^9}, 3.57766120897752*^9, 
+   3.57766186214879*^9, {3.577664526738686*^9, 3.577664545212802*^9}, 
+   3.577664667939704*^9}],
+
+Cell[BoxData["\<\"high priority\"\>"], "Output",
+ CellChangeTimes->{{3.577660844746681*^9, 3.577660851382162*^9}, {
+   3.5776611463141947`*^9, 3.577661174645852*^9}, 3.57766120897752*^9, 
+   3.57766186214879*^9, {3.577664526738686*^9, 3.577664545212802*^9}, 
+   3.577664667946838*^9}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   RowBox[{"Plus", "[", 
+    RowBox[{"3", ",", 
+     RowBox[{"f", "[", 
+      RowBox[{"Times", "[", 
+       RowBox[{"2", ",", "x"}], "]"}], "]"}]}], "]"}],
+   ShowSpecialCharacters->False,
+   ShowStringCharacters->True,
+   NumberMarks->True],
+  FullForm]], "Output",
+ CellChangeTimes->{{3.577660844746681*^9, 3.577660851382162*^9}, {
+   3.5776611463141947`*^9, 3.577661174645852*^9}, 3.57766120897752*^9, 
+   3.57766186214879*^9, {3.577664526738686*^9, 3.577664545212802*^9}, 
+   3.577664667955577*^9}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.577661863250592*^9, 3.577661866322814*^9}}]
+},
+WindowSize->{740, 846},
+WindowMargins->{{-5, Automatic}, {Automatic, 0}},
+FrontEndVersion->"8.0 for Linux x86 (64-bit) (October 10, 2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 2536, 59, 475, "Input"],
+Cell[3118, 83, 307, 5, 30, "Output"],
+Cell[3428, 90, 515, 14, 43, "Output"],
+Cell[3946, 106, 560, 15, 43, "Output"],
+Cell[4509, 123, 359, 5, 50, "Output"],
+Cell[4871, 130, 341, 5, 30, "Output"],
+Cell[5215, 137, 429, 6, 54, "Output"],
+Cell[5647, 145, 454, 12, 43, "Output"],
+Cell[6104, 159, 286, 4, 30, "Output"],
+Cell[6393, 165, 283, 4, 30, "Output"],
+Cell[6679, 171, 537, 15, 43, "Output"],
+Cell[7219, 188, 284, 4, 30, "Output"],
+Cell[7506, 194, 537, 15, 43, "Output"]
+}, Open  ]],
+Cell[8058, 212, 92, 1, 30, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
