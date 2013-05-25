@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       145,          7]
-NotebookDataLength[     23611,        570]
-NotebookOptionsPosition[     22978,        545]
-NotebookOutlinePosition[     23312,        560]
-CellTagsIndexPosition[     23269,        557]
+NotebookDataLength[     33716,        775]
+NotebookOptionsPosition[     33003,        747]
+NotebookOutlinePosition[     33339,        762]
+CellTagsIndexPosition[     33296,        759]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -188,7 +188,7 @@ Cell[CellGroupData[{
 
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"myplot1", " ", "=", " ", 
+  RowBox[{"projplot1", " ", "=", " ", 
    RowBox[{"ParametricPlot", "[", 
     RowBox[{
      RowBox[{"Evaluate", "[", 
@@ -200,7 +200,7 @@ Cell[BoxData[{
      RowBox[{"{", 
       RowBox[{"t", ",", "0", ",", "10"}], "}"}]}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
- RowBox[{"Show", "[", "myplot1", "]"}]}], "Input",
+ RowBox[{"Show", "[", "projplot1", "]"}]}], "Input",
  CellChangeTimes->{{3.494162004524008*^9, 3.494162076852659*^9}, {
    3.494162433062894*^9, 3.494162433108081*^9}, {3.494162592059354*^9, 
    3.4941625983662167`*^9}, {3.494162757151064*^9, 3.494162787005321*^9}, {
@@ -214,7 +214,7 @@ Cell[BoxData[{
    3.578450220885561*^9, 3.578450230079007*^9}, {3.578450264906887*^9, 
    3.578450311781836*^9}, {3.5784503883950777`*^9, 3.578450467262826*^9}, {
    3.578450555472685*^9, 3.578450609044169*^9}, {3.5784509674821568`*^9, 
-   3.578450969232183*^9}}],
+   3.578450969232183*^9}, {3.578454924382641*^9, 3.578454931011052*^9}}],
 
 Cell[BoxData[
  GraphicsBox[{{}, {}, 
@@ -343,191 +343,231 @@ Cell[BoxData[""], "Input",
 Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.57844889648127*^9, 3.578448896549643*^9}}],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
   RowBox[{
    RowBox[{
-    RowBox[{"g", "=", "9.8"}], ";", 
-    RowBox[{"x0", "=", "0."}], ";", 
-    RowBox[{"y0", "=", "0."}], ";", 
     RowBox[{"vx0", " ", "=", 
      RowBox[{"V", " ", 
       RowBox[{"Cos", "[", 
        RowBox[{"th", "*", 
         RowBox[{"Pi", "/", "180"}]}], "]"}]}]}], ";", 
     RowBox[{"vy0", "=", 
-     RowBox[{"V", " ", 
+     RowBox[{"V", "*", " ", 
       RowBox[{"Sin", "[", 
        RowBox[{"th", "*", 
         RowBox[{"Pi", "/", "180"}]}], "]"}]}]}], ";", 
+    RowBox[{"vter", "=", 
+     RowBox[{"Sqrt", "[", 
+      RowBox[{"2", " ", "m", " ", 
+       RowBox[{"gg", "/", " ", 
+        RowBox[{"(", 
+         RowBox[{"c", " ", "\[Rho]airVar", " ", "A"}], ")"}]}]}], "]"}]}], 
+    ";", 
     RowBox[{"\[Rho]air", " ", "=", " ", "1.29"}], " ", 
     RowBox[{"(*", 
      RowBox[{"kg", " ", "/", 
       RowBox[{"(", 
        RowBox[{"meters", "^", "3"}], ")"}]}], "*)"}], ";", 
-    RowBox[{"vter", "=", 
-     RowBox[{"Sqrt", "[", 
-      RowBox[{"2", " ", "m", " ", 
-       RowBox[{"g", "/", " ", 
-        RowBox[{"(", 
-         RowBox[{"c", " ", "\[Rho]air", " ", "A"}], ")"}]}]}], "]"}]}], ";", 
+    RowBox[{"x0", "=", "0."}], ";", 
+    RowBox[{"g", " ", "=", " ", "9.8"}], " ", ";", 
+    RowBox[{"(*", 
+     RowBox[{"gravitational", " ", "constant", " ", 
+      RowBox[{"m", "/", 
+       RowBox[{
+        RowBox[{"(", "seconds", ")"}], "^", "2"}]}]}], "*)"}], ";", 
     "\[IndentingNewLine]", 
-    RowBox[{"Module", "[", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"{", 
+    RowBox[{"ode1", "=", 
+     RowBox[{"{", 
+      RowBox[{
        RowBox[{
-        RowBox[{"ode1", "=", 
-         RowBox[{
+        RowBox[{
+         RowBox[{"x", "''"}], "[", "t", "]"}], " ", "==", "  ", 
+        RowBox[{
+         RowBox[{"-", "gg"}], " ", 
+         RowBox[{"(", 
           RowBox[{
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{
-              RowBox[{
-               RowBox[{"x", "''"}], "[", "t", "]"}], " ", "==", "  ", 
-              RowBox[{
-               RowBox[{"-", "g"}], " ", 
-               RowBox[{"(", 
-                RowBox[{
-                 RowBox[{
-                  RowBox[{"x", "'"}], "[", "t", "]"}], " ", "/", " ", 
-                 RowBox[{"(", 
-                  RowBox[{"vter", "^", "2"}], ")"}]}], ")"}], " ", 
-               RowBox[{"Sqrt", "[", 
-                RowBox[{
-                 RowBox[{
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"x", "'"}], "[", "t", "]"}], ")"}], "^", "2"}], 
-                 " ", "+", " ", 
-                 RowBox[{
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"y", "'"}], "[", "t", "]"}], ")"}], "^", "2"}]}], 
-                "]"}]}]}], ",", 
-             RowBox[{
-              RowBox[{
-               RowBox[{"y", "''"}], "[", "t", "]"}], "==", "  ", 
-              RowBox[{
-               RowBox[{"-", "g"}], " ", 
-               RowBox[{"(", 
-                RowBox[{"1", "+", "  ", 
-                 RowBox[{
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{
-                    RowBox[{"y", "'"}], "[", "t", "]"}], " ", "/", " ", 
-                    RowBox[{"(", 
-                    RowBox[{"vter", "^", "2"}], ")"}]}], ")"}], " ", 
-                  RowBox[{"Sqrt", "[", 
-                   RowBox[{
-                    RowBox[{
-                    RowBox[{"(", 
-                    RowBox[{
-                    RowBox[{"x", "'"}], "[", "t", "]"}], ")"}], "^", "2"}], 
-                    " ", "+", " ", 
-                    RowBox[{
-                    RowBox[{"(", 
-                    RowBox[{
-                    RowBox[{"y", "'"}], "[", "t", "]"}], ")"}], "^", "2"}]}], 
-                   "]"}]}]}], " ", ")"}]}]}], ",", 
-             RowBox[{
-              RowBox[{"x", "[", "0", "]"}], "==", " ", "x0"}], ",", 
-             RowBox[{
-              RowBox[{
-               RowBox[{"x", "'"}], "[", "0", "]"}], "==", "  ", "vx0"}], ",", 
-             " ", 
-             RowBox[{
-              RowBox[{"y", "[", "0", "]"}], "==", " ", "y0"}], ",", " ", 
-             RowBox[{
-              RowBox[{
-               RowBox[{"y", "'"}], "[", "0", "]"}], " ", "==", "  ", 
-              "vy0"}]}], "}"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-           "sol"}], "=", 
-          RowBox[{"NDSolve", "[", 
-           RowBox[{"ode1", ",", 
-            RowBox[{"{", 
-             RowBox[{"x", ",", "y"}], "}"}], ",", 
-            RowBox[{"{", 
-             RowBox[{"t", ",", "0", ",", "200"}], "}"}]}], "]"}]}]}], ";"}], 
-       "}"}], ",", "\[IndentingNewLine]", 
-      RowBox[{"Plot", "[", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{
+           RowBox[{
+            RowBox[{"x", "'"}], "[", "t", "]"}], " ", "/", " ", 
            RowBox[{"(", 
-            RowBox[{"180", "/", "Pi"}], ")"}], " ", "\[Theta]0", " ", 
-           RowBox[{"Cos", "[", 
-            RowBox[{"omega", "*", "t"}], "]"}]}], ",", 
+            RowBox[{"vter", "^", "2"}], ")"}]}], ")"}], " ", 
+         RowBox[{"Sqrt", "[", 
           RowBox[{
            RowBox[{
             RowBox[{"(", 
-             RowBox[{"180", "/", "Pi"}], ")"}], "*", " ", 
-            RowBox[{"\[Theta]", "[", "t", "]"}]}], "/.", "result"}]}], "}"}], 
-        ",", 
+             RowBox[{
+              RowBox[{"x", "'"}], "[", "t", "]"}], ")"}], "^", "2"}], " ", 
+           "+", " ", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"y", "'"}], "[", "t", "]"}], ")"}], "^", "2"}]}], 
+          "]"}]}]}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"y", "''"}], "[", "t", "]"}], "==", "  ", 
+        RowBox[{
+         RowBox[{"-", "gg"}], 
+         RowBox[{"(", 
+          RowBox[{"1", "+", "  ", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"y", "'"}], "[", "t", "]"}], " ", "/", " ", 
+              RowBox[{"(", 
+               RowBox[{"vter", "^", "2"}], ")"}]}], ")"}], " ", 
+            RowBox[{"Sqrt", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"x", "'"}], "[", "t", "]"}], ")"}], "^", "2"}], " ", 
+              "+", " ", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"y", "'"}], "[", "t", "]"}], ")"}], "^", "2"}]}], 
+             "]"}]}]}], " ", ")"}]}]}], ",", 
+       RowBox[{
+        RowBox[{"x", "[", "0", "]"}], "==", " ", "x0"}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"x", "'"}], "[", "0", "]"}], "==", "  ", "vx0"}], ",", " ", 
+       RowBox[{
+        RowBox[{"y", "[", "0", "]"}], "==", " ", "y0"}], ",", " ", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"y", "'"}], "[", "0", "]"}], " ", "==", "  ", "vy0"}]}], 
+      "}"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"sol", "=", 
+     RowBox[{"NDSolve", "[", 
+      RowBox[{"ode1", ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "0", ",", "200"}], "}"}]}], "]"}]}], ";", " ", 
+    RowBox[{"ParametricPlot", "[", 
+     RowBox[{
+      RowBox[{"Evaluate", "[", 
+       RowBox[{
         RowBox[{"{", 
-         RowBox[{"t", ",", "0", ",", "20"}], "}"}], ",", 
-        RowBox[{"PlotStyle", "\[Rule]", " ", 
+         RowBox[{
+          RowBox[{"x", "[", "t", "]"}], ",", 
+          RowBox[{"y", "[", "t", "]"}]}], "}"}], "/.", "sol"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+      RowBox[{"PlotRange", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
          RowBox[{"{", 
-          RowBox[{
-           RowBox[{"{", "Blue", "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{"Dashed", ",", "Red"}], "}"}]}], "}"}]}], ",", 
-        RowBox[{"PlotRange", "\[Rule]", " ", "All"}], ",", 
-        RowBox[{"AxesLabel", "\[Rule]", 
+          RowBox[{"0", ",", 
+           RowBox[{"maxrange", "[", 
+            RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
          RowBox[{"{", 
-          RowBox[{"\"\<t (s)\>\"", ",", "\"\<\[Theta] (rad)\>\""}], "}"}]}], 
-        ",", 
-        RowBox[{"PlotRange", "\[Rule]", 
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{"0", ",", "20"}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"-", "20"}], ",", "20"}], "}"}]}], "}"}]}], ",", 
-        RowBox[{"ImageSize", "\[Rule]", 
-         RowBox[{"{", 
-          RowBox[{"700", ",", "500"}], "}"}]}]}], "]"}]}], "]"}]}], ",", 
-   "\[IndentingNewLine]", 
+          RowBox[{"0", ",", 
+           RowBox[{"maxrange", "[", 
+            RowBox[{"[", "2", "]"}], "]"}]}], "}"}]}], "}"}]}], ",", 
+      RowBox[{"AxesLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<t (s)\>\"", ",", "\"\<\[Theta] (rad)\>\""}], "}"}]}], 
+      ",", 
+      RowBox[{"ImageSize", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"700", ",", "500"}], "}"}]}]}], "]"}]}], ",", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<Launch parameters\>\"", ",", "12", ",", "Bold"}], "]"}], ",",
+    "\[IndentingNewLine]", 
    RowBox[{"{", 
     RowBox[{
      RowBox[{"{", 
-      RowBox[{"V", ",", "100", ",", "\"\<Initial speed(m/s)\>\""}], "}"}], 
-     ",", "0", ",", "600", ",", 
+      RowBox[{"V", ",", "100.", ",", "\"\<Initial speed(m/s)\>\""}], "}"}], 
+     ",", "0.", ",", "600.", ",", 
      RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
    RowBox[{"{", 
     RowBox[{
      RowBox[{"{", 
-      RowBox[{"th", ",", "50", ",", "\"\<initial angle (degrees)\>\""}], 
+      RowBox[{"th", ",", "50.", ",", "\"\<initial angle (degrees)\>\""}], 
       "}"}], ",", "0.", ",", "90.", ",", 
      RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
    "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"m", ",", "0", ",", "\"\<Projectile mass {kg)\>\""}], "}"}], 
-      ",", "0.000000001", ",", "100.", ",", 
-      RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], 
-    "\[IndentingNewLine]", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{
-       "c", ",", "0.5", ",", "\"\<Coefficient of quadratic drag\>\""}], "}"}],
-       ",", "0.001", ",", "10.0", ",", 
-      RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], 
-    "\[IndentingNewLine]", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{
-       "A", ",", "0.001", ",", 
-        "\"\<Projectile cross-section area (m^2)\>\""}], "}"}], ",", 
-      "0.0000001", ",", "50.", ",", 
-      RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}]}]}], 
-  "]"}]], "Input",
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"y0", ",", "0.", ",", "\"\<initial launch height\>\""}], "}"}], 
+     ",", "0.", ",", "10.", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<Projectile properties\>\"", ",", "12", ",", "Bold"}], "]"}], 
+   ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m", ",", "1.", ",", "\"\<Projectile mass {kg)\>\""}], "}"}], 
+     ",", "0.000000001", ",", "100.", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "A", ",", "0.001", ",", "\"\<Projectile cross-section area (m^2)\>\""}],
+       "}"}], ",", "0.0000001", ",", "50.", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"c", ",", "0.5", ",", "\"\<Coefficient of quadratic drag\>\""}],
+       "}"}], ",", "0.001", ",", "10.0", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<Physical Environment\>\"", ",", "12", ",", "Bold"}], "]"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"gg", ",", "g", ",", "\"\<gravitational acceleration\>\""}], 
+      "}"}], ",", 
+     RowBox[{"0.1", " ", "g"}], ",", 
+     RowBox[{"10", " ", "g"}], ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[Rho]airVar", ",", "\[Rho]air", ",", 
+       "\"\<Density of air (kg /meters^3)\>\""}], "}"}], ",", 
+     RowBox[{"0.1", " ", "\[Rho]air"}], ",", 
+     RowBox[{"10", " ", "\[Rho]air"}], ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "tmax", ",", "200", ",", 
+       "\"\<Duration of object existance (aka flight duration pictured, \
+s)\>\""}], "}"}], ",", "10", ",", "400", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"maxrange", ",", 
+       RowBox[{"{", 
+        RowBox[{"100", ",", "100"}], "}"}], ",", 
+       "\"\<plot window scale/ axes range\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1.", ",", "1."}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1000.", ",", "1000."}], "}"}], ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Top"}]}], "]"}]], "Input",
  CellChangeTimes->{{3.577478475599698*^9, 3.5774784997979183`*^9}, {
    3.577478534848688*^9, 3.577478567062739*^9}, 3.577490072664493*^9, {
    3.577502720630567*^9, 3.5775027514202127`*^9}, 3.5775030057285748`*^9, 
@@ -540,11 +580,173 @@ Cell[BoxData[
    3.577550744443714*^9, 3.5775508053235483`*^9}, {3.5784532411599197`*^9, 
    3.5784532736882772`*^9}, {3.5784539706110773`*^9, 3.578454224150187*^9}, {
    3.578454263060499*^9, 3.578454269604541*^9}, {3.578454365305945*^9, 
-   3.578454373909574*^9}, {3.578454552339189*^9, 3.57845481686034*^9}},
- EmphasizeSyntaxErrors->True]
+   3.578454373909574*^9}, {3.578454552339189*^9, 3.57845481686034*^9}, {
+   3.5784549418910522`*^9, 3.5784550164031878`*^9}, 3.578455068151464*^9, {
+   3.578455124159486*^9, 3.5784553294367332`*^9}, 3.57845539926469*^9, {
+   3.578455435097886*^9, 3.578455443664629*^9}, 3.578455486137311*^9, {
+   3.578455539619652*^9, 3.578455542583317*^9}, {3.578455986381647*^9, 
+   3.578456038417656*^9}, {3.5784560708070087`*^9, 3.578456072773404*^9}, {
+   3.5784561143861094`*^9, 3.578456155610578*^9}, {3.5784561999284773`*^9, 
+   3.578456309231936*^9}, {3.57845634243747*^9, 3.578456877349625*^9}, {
+   3.578456922073476*^9, 3.578456976496896*^9}, {3.578457007694648*^9, 
+   3.578457057937499*^9}, {3.5784571124424953`*^9, 3.578457205053732*^9}, {
+   3.578457354707655*^9, 3.578457419184935*^9}, {3.5784574647030287`*^9, 
+   3.578457593341385*^9}, {3.578457649392674*^9, 3.578457826931162*^9}, {
+   3.578457861411393*^9, 3.578457892706719*^9}, {3.578457969533595*^9, 
+   3.578457972327951*^9}, {3.5784580281023083`*^9, 3.578458031082456*^9}, {
+   3.578458063683866*^9, 3.5784580673260727`*^9}, {3.578458109179757*^9, 
+   3.578458111856119*^9}, {3.578458142454267*^9, 3.578458145716546*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`A$$ = 0.001, $CellContext`c$$ = 
+    0.5, $CellContext`gg$$ = 9.8, $CellContext`m$$ = 
+    1., $CellContext`maxrange$$ = {100, 100}, $CellContext`th$$ = 
+    50., $CellContext`tmax$$ = 200, $CellContext`V$$ = 
+    100., $CellContext`y0$$ = 0., $CellContext`\[Rho]airVar$$ = 1.29, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[
+       Style["Launch parameters", 12, Bold]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`V$$], 100., "Initial speed(m/s)"}, 0., 600.}, {{
+       Hold[$CellContext`th$$], 50., "initial angle (degrees)"}, 0., 90.}, {{
+       Hold[$CellContext`y0$$], 0., "initial launch height"}, 0., 10.}, {
+      Hold[
+       Style["Projectile properties", 12, Bold]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`m$$], 1., "Projectile mass {kg)"}, 1.*^-9, 100.}, {{
+       Hold[$CellContext`A$$], 0.001, "Projectile cross-section area (m^2)"}, 
+      1.*^-7, 50.}, {{
+       Hold[$CellContext`c$$], 0.5, "Coefficient of quadratic drag"}, 0.001, 
+      10.}, {
+      Hold[
+       Style["Physical Environment", 12, Bold]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`gg$$], 9.8, "gravitational acceleration"}, 
+      0.9800000000000001, 98.}, {{
+       Hold[$CellContext`\[Rho]airVar$$], 1.29, 
+       "Density of air (kg /meters^3)"}, 0.129, 12.9}, {{
+       Hold[$CellContext`tmax$$], 200, 
+       "Duration of object existance (aka flight duration pictured, s)"}, 10, 
+      400}, {{
+       Hold[$CellContext`maxrange$$], {100, 100}, 
+       "plot window scale/ axes range"}, {1., 1.}, {1000., 1000.}}}, 
+    Typeset`size$$ = {700., {248., 252.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, $CellContext`V$8570$$ =
+     0, $CellContext`th$8571$$ = 0, $CellContext`y0$8572$$ = 
+    0, $CellContext`m$8573$$ = 0, $CellContext`A$8574$$ = 
+    0, $CellContext`c$8575$$ = 0, $CellContext`gg$8576$$ = 
+    0, $CellContext`\[Rho]airVar$8577$$ = 0, $CellContext`maxrange$8578$$ = {
+    0, 0}}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`A$$ = 0.001, $CellContext`c$$ = 
+        0.5, $CellContext`gg$$ = 9.8, $CellContext`m$$ = 
+        1., $CellContext`maxrange$$ = {100, 100}, $CellContext`th$$ = 
+        50., $CellContext`tmax$$ = 200, $CellContext`V$$ = 
+        100., $CellContext`y0$$ = 0., $CellContext`\[Rho]airVar$$ = 1.29}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`V$$, $CellContext`V$8570$$, 0], 
+        Hold[$CellContext`th$$, $CellContext`th$8571$$, 0], 
+        Hold[$CellContext`y0$$, $CellContext`y0$8572$$, 0], 
+        Hold[$CellContext`m$$, $CellContext`m$8573$$, 0], 
+        Hold[$CellContext`A$$, $CellContext`A$8574$$, 0], 
+        Hold[$CellContext`c$$, $CellContext`c$8575$$, 0], 
+        Hold[$CellContext`gg$$, $CellContext`gg$8576$$, 0], 
+        Hold[$CellContext`\[Rho]airVar$$, $CellContext`\[Rho]airVar$8577$$, 
+         0], 
+        Hold[$CellContext`maxrange$$, $CellContext`maxrange$8578$$, {0, 0}]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`vx0 = $CellContext`V$$ 
+         Cos[$CellContext`th$$ (Pi/180)]; $CellContext`vy0 = $CellContext`V$$ 
+         Sin[$CellContext`th$$ (Pi/180)]; $CellContext`vter = 
+        Sqrt[2 $CellContext`m$$ ($CellContext`gg$$/($CellContext`c$$ \
+$CellContext`\[Rho]airVar$$ $CellContext`A$$))]; $CellContext`\[Rho]air = 
+        1.29; $CellContext`x0 = 0.; $CellContext`g = 9.8; 
+       Null; $CellContext`ode1 = {
+         Derivative[
+           2][$CellContext`x][$CellContext`t] == (-$CellContext`gg$$) (
+            Derivative[1][$CellContext`x][$CellContext`t]/$CellContext`vter^2)
+             Sqrt[Derivative[1][$CellContext`x][$CellContext`t]^2 + 
+             Derivative[1][$CellContext`y][$CellContext`t]^2], 
+          Derivative[
+           2][$CellContext`y][$CellContext`t] == (-$CellContext`gg$$) (
+            1 + (Derivative[
+               1][$CellContext`y][$CellContext`t]/$CellContext`vter^2) 
+             Sqrt[Derivative[1][$CellContext`x][$CellContext`t]^2 + 
+               Derivative[
+                 1][$CellContext`y][$CellContext`t]^2]), $CellContext`x[
+           0] == $CellContext`x0, 
+          Derivative[1][$CellContext`x][
+           0] == $CellContext`vx0, $CellContext`y[0] == $CellContext`y0$$, 
+          Derivative[1][$CellContext`y][
+           0] == $CellContext`vy0}; $CellContext`sol = 
+        NDSolve[$CellContext`ode1, {$CellContext`x, $CellContext`y}, \
+{$CellContext`t, 0, 200}]; ParametricPlot[
+         Evaluate[
+          ReplaceAll[{
+            $CellContext`x[$CellContext`t], 
+            $CellContext`y[$CellContext`t]}, $CellContext`sol]], \
+{$CellContext`t, 0, $CellContext`tmax$$}, PlotRange -> {{0, 
+            Part[$CellContext`maxrange$$, 1]}, {0, 
+            Part[$CellContext`maxrange$$, 2]}}, 
+         AxesLabel -> {"t (s)", "\[Theta] (rad)"}, ImageSize -> {700, 500}]), 
+      "Specifications" :> {
+        Style[
+        "Launch parameters", 12, 
+         Bold], {{$CellContext`V$$, 100., "Initial speed(m/s)"}, 0., 600., 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`th$$, 50., "initial angle (degrees)"}, 0.,
+          90., Appearance -> 
+         "Labeled"}, {{$CellContext`y0$$, 0., "initial launch height"}, 0., 
+         10., Appearance -> "Labeled"}, Delimiter, 
+        Style[
+        "Projectile properties", 12, 
+         Bold], {{$CellContext`m$$, 1., "Projectile mass {kg)"}, 1.*^-9, 100.,
+          Appearance -> 
+         "Labeled"}, {{$CellContext`A$$, 0.001, 
+          "Projectile cross-section area (m^2)"}, 1.*^-7, 50., Appearance -> 
+         "Labeled"}, {{$CellContext`c$$, 0.5, 
+          "Coefficient of quadratic drag"}, 0.001, 10., Appearance -> 
+         "Labeled"}, Delimiter, 
+        Style[
+        "Physical Environment", 12, 
+         Bold], {{$CellContext`gg$$, 9.8, "gravitational acceleration"}, 
+         0.9800000000000001, 98., Appearance -> 
+         "Labeled"}, {{$CellContext`\[Rho]airVar$$, 1.29, 
+          "Density of air (kg /meters^3)"}, 0.129, 12.9, Appearance -> 
+         "Labeled"}, {{$CellContext`tmax$$, 200, 
+          "Duration of object existance (aka flight duration pictured, s)"}, 
+         10, 400, Appearance -> 
+         "Labeled"}, {{$CellContext`maxrange$$, {100, 100}, 
+          "plot window scale/ axes range"}, {1., 1.}, {1000., 1000.}, 
+         Appearance -> "Labeled"}}, "Options" :> {ControlPlacement -> Top}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{745., {485., 490.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.578457776818378*^9, 3.578457827686779*^9}, {
+   3.5784578716686563`*^9, 3.578457893743374*^9}, 3.5784579729102488`*^9, 
+   3.5784580373599997`*^9, 3.5784580685821867`*^9, 3.578458112918324*^9, 
+   3.578458146405072*^9}]
+}, Open  ]]
 },
-WindowSize->{799, 739},
-WindowMargins->{{4, Automatic}, {Automatic, 0}},
+WindowSize->{1225, 808},
+WindowMargins->{{-4, Automatic}, {Automatic, 0}},
 FrontEndVersion->"8.0 for Linux x86 (64-bit) (October 10, 2011)",
 StyleDefinitions->"Default.nb"
 ]
@@ -560,18 +762,21 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[567, 22, 5472, 133, 259, "Input"],
-Cell[6042, 157, 763, 26, 50, "Output"]
+Cell[567, 22, 5472, 133, 240, "Input"],
+Cell[6042, 157, 763, 26, 30, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6842, 188, 1456, 28, 50, "Input"],
-Cell[8301, 218, 5798, 101, 184, "Output"]
+Cell[6842, 188, 1506, 28, 50, "Input"],
+Cell[8351, 218, 5798, 101, 184, "Output"]
 }, Open  ]],
-Cell[14114, 322, 162, 2, 50, "Input"],
-Cell[14279, 326, 566, 8, 30, "Input"],
-Cell[14848, 336, 287, 4, 30, "Input"],
-Cell[15138, 342, 91, 1, 30, "Input"],
-Cell[15232, 345, 7742, 198, 392, "Input"]
+Cell[14164, 322, 162, 2, 50, "Input"],
+Cell[14329, 326, 566, 8, 30, "Input"],
+Cell[14898, 336, 287, 4, 30, "Input"],
+Cell[15188, 342, 91, 1, 30, "Input"],
+Cell[CellGroupData[{
+Cell[15304, 347, 10113, 250, 449, "Input"],
+Cell[25420, 599, 7567, 145, 992, "Output"]
+}, Open  ]]
 }
 ]
 *)
