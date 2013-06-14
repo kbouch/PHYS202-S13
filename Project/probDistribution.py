@@ -57,12 +57,16 @@ def MCdistribute1D(probx,probxmax,xmin,xmax,N=1,seed=None):
     x_samples_L = []
     while len(x_samples_L) < N:
         shotx = (xmax - xmin)*np.random.random_sample() + xmin
-        height = probxmax**np.random.random_sample()
+        height = 1.1*probxmax*np.random.random_sample()
         if heigth <= probx(shotx):
             x_samples_L.append(shotx)
     return np.array(x_samples_L,dtype=float)
 
 def rough_find_max(xmin,xmax,f,step):
+    """ Returns the maximum value of f evaluted
+    at x values in np.arange(xmin,xmax+step,step).
+    Only returns the value of f, not the x location.
+    """
     import numpy as np
     xtest = np.arange(xmin,xmax+step,step)
     return np.max(f(xtest))

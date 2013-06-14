@@ -63,3 +63,25 @@ def gen_nucleus2D(symb,rpob='CDF'):
     xypos[:1] = rpos*np.sin(azimupos)
     
     return xypos
+
+def interaction_detect(xypos_n1,xypos_n2,crosssec):
+    """Finds all inelastic collisions between nucleons in nucleus 1
+    with position xypos_n1 and nuceons in nucleus 2 with position 
+    xypos_n2. Returns two arrays with the integer number of collisions
+    each nucleon experienced. The total number of collisions is the 
+    sum of elements in one of these arrays (both have same total).
+    The number of participants in a given nucleus is the number of 
+    nonzero elements in one coll_count array. Total number of participants
+    is the number on nonzero elements in both output arrays.
+    """
+    import numpy as np
+    d = np.sqrt(crosssec/np.pi)
+    coll_count1 = np.zeros(xypos_1.shape[0],dtype=int)
+    coll_count2 = np.zeros(xypos_2.shape[0],dtype=int)
+    for j in range(xypos_n1.size):
+        for k in range(xypos_n2.size):
+            if np.sqrt((xypos_n1[j,0]-xypos_n2[k,0])**2\
+                      +(xypos_n1[j,1]-xypos_n2[k,1])**2) < d:
+                coll_count1[j] += 1
+                coll_count2[k] += 1
+    return coll_count1, coll_count2
