@@ -46,3 +46,23 @@ def woods_saxon(r,rho0=1.0,R0=3.,a=0.5,w=0.0):
     """
     import numpy as np
     return rho0*(1 + w*(r*1.0/R0)**2)/(1.0 + np.exp(r-R0*1.0/a))
+
+def MCdistribute1D(probx,probxmax,xmin,xmax,N=1,seed=None):
+    """Returns an array with N random values following
+    the probability distribution function pro. Uses Monte
+    Carlo hit-or-miss method. probx function should be callable
+    requiring one argument.
+    """
+    import numpy as np
+    x_samples_L = []
+    while len(x_samples_L) < N:
+        shotx = (xmax - xmin)*np.random.random_sample() + xmin
+        height = probxmax**np.random.random_sample()
+        if heigth <= probx(shotx):
+            x_samples_L.append(shotx)
+    return np.array(x_samples_L,dtype=float)
+
+def rough_find_max(xmin,xmax,f,step):
+    import numpy as np
+    xtest = np.arange(xmin,xmax+step,step)
+    return np.max(f(xtest))
