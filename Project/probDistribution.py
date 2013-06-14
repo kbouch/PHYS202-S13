@@ -37,3 +37,12 @@ def distribute1D(x,probx,N,zseed=None):
     z = rand.random_sample(N)
     
     return CDFinv(z,F,x)
+
+def woods_saxon(r,rho0=1.0,R0=3.,a=0.5,w=0.0):
+    """ Radial density of nucleon matter in a nucleus.
+    rho0 is the density at the center (r=0). R0 is the average
+    radius. If w=0, R0 is the radius at which the density reaches
+    half rho0. w and a are other parameters
+    """
+    import numpy as np
+    return rho0*(1 + w*(r*1.0/R0)**2)/(1.0 + np.exp(r-R0*1.0/a))
