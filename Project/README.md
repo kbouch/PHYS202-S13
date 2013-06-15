@@ -7,7 +7,7 @@
 Started on _May 15 2013_
 
 To learn how to use the program, see documentaion Ipython Notebook file called
-`Documentation`.
+`Documentation_Examples`.
 
 
 - - -
